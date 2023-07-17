@@ -61,15 +61,12 @@ class ListPendaftarans extends ListRecords
                     // query untuk mengambil semua pengeluaran_barang antara tanggal yang diberikan
                     $pengeluaranRecords = Pendaftaran::whereBetween('created_at', [$data['dari'], $data['hingga']])->get();
 
-                    // menghitung total barang yang keluar
-                    // $totalBarangKeluar = $pengeluaranRecords->sum('jumlah_barang_keluar');
-
+                    // menghitung total row yang di tampilkan
                     $totalRows = $pengeluaranRecords->count();
 
-                    $pdf = PDF::loadView('pdf_pengeluaran_barang', [
+                    $pdf = PDF::loadView('pdf_pendaftaran_santri', [
                         'records' => $pengeluaranRecords,
                         'totalRows' => $totalRows,
-                        // 'totalBarangKeluar' => $totalBarangKeluar,
                         'dari' => $data['dari'],
                         'hingga' => $data['hingga']
                     ])->output();
