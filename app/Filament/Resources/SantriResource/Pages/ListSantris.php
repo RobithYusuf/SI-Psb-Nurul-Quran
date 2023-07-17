@@ -2,9 +2,12 @@
 
 namespace App\Filament\Resources\SantriResource\Pages;
 
-use App\Filament\Resources\SantriResource;
+use Carbon\Carbon;
+use Filament\Forms;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
+use App\Filament\Resources\SantriResource;
+use App\Models\santri;
 
 class ListSantris extends ListRecords
 {
@@ -15,6 +18,7 @@ class ListSantris extends ListRecords
         return [
             Actions\CreateAction::make()
             ->label('Tambah Santri'),
+
         ];
     }
 }
