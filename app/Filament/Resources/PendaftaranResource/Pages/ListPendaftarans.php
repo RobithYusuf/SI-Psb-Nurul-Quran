@@ -45,15 +45,15 @@ class ListPendaftarans extends ListRecords
                     return $data;
                 }),
 
-                Actions\Action::make('export')
+            Actions\Action::make('export')
                 ->label('Print PDF')
                 ->icon('heroicon-s-document-download')
                 ->form([
                     Forms\Components\DatePicker::make('dari')->required(),
                     Forms\Components\DatePicker::make('hingga')->required()
-                    ->default(function () {
-                        return Carbon::now();
-                    }),
+                        ->default(function () {
+                            return Carbon::now();
+                        }),
                 ])
                 ->action(function (array $data) {
                     $filename = 'export_' . now()->toDateTimeString() . '.pdf';
