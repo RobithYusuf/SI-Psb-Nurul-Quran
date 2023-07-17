@@ -2,11 +2,14 @@
 
 namespace App\Filament\Resources\PendaftaranResource\Pages;
 
+use Carbon\Carbon;
+use Filament\Forms;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Pendaftaran;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
 use App\Filament\Resources\PendaftaranResource;
 use App\Filament\Resources\PendaftaranResource\Widgets\PendaftaranStatsOverview;
-use App\Models\Pendaftaran;
 
 class ListPendaftarans extends ListRecords
 {
@@ -40,6 +43,38 @@ class ListPendaftarans extends ListRecords
                 ->mutateFormDataUsing(function (array $data): array {
                     $data['user_id'] = auth()->id();
                     return $data;
+                }),
+
+                Actions\Action::make('export')
+                ->label('Print PDF')
+                ->icon('heroicon-s-document-download')
+                ->form([
+                    Forms\Components\DatePicker::make('dari')->required(),
+                    Forms\Components\DatePicker::make('hingga')->required()
+                    ->default(function () {
+                        return Carbon::now();
+                    }),
+                ])
+                ->action(function (array $data) {
+                    $filename = 'export_' . now()->toDateTimeString() . '.pdf';
+
+                    // query untuk mengambil semua pengeluaran_barang antara tanggal yang diberikan
+                    $pengeluaranRecords = Pendaftaran::whereBetween('created_at', [$data['dari'], $data['hingga']])->get();
+
+                    // menghitung total barang yang keluar
+                    // $totalBarangKeluar = $pengeluaranRecords->sum('jumlah_barang_keluar');
+
+                    $totalRows = $pengeluaranRecords->count();
+
+                    $pdf = PDF::loadView('pdf_pengeluaran_barang', [
+                        'records' => $pengeluaranRecords,
+                        'totalRows' => $totalRows,
+                        // 'totalBarangKeluar' => $totalBarangKeluar,
+                        'dari' => $data['dari'],
+                        'hingga' => $data['hingga']
+                    ])->output();
+
+                    return response()->streamDownload(fn () => print($pdf), $filename);
                 }),
 
         ];

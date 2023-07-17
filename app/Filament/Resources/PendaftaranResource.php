@@ -181,6 +181,7 @@ class PendaftaranResource extends Resource
                 Tables\Columns\TextColumn::make('no_hp_wali'),
                 Tables\Columns\TextColumn::make('pekerjaan'),
                 Tables\Columns\TextColumn::make('gaji_wali'),
+                Tables\Columns\TextColumn::make('created_at'),
 
 
                 // SpatieMediaLibraryImageColumn::make('kartu_keluarga'),
@@ -214,6 +215,8 @@ class PendaftaranResource extends Resource
                     ])
                     ->color(fn ($record): string => $record->ijazah_terakhir === 'uploads/Ijazah_Terakhir.pdf' ? 'success' : 'danger')
                     ->url(fn ($record) => Storage::url($record->ijazah_terakhir)),
+
+
 
 
                 // Tables\Columns\IconColumn::make('ijazah_terakhir')
