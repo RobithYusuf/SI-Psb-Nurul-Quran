@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d60dec2f03cae959ec82b6e90c0f8f2",
+    "content-hash": "bbf1a3e138349d1bab2b9be63ecb6ad7",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -2183,6 +2183,59 @@
                 }
             ],
             "time": "2023-06-20T17:10:50+00:00"
+        },
+        {
+            "name": "kenepa/multi-widget",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kenepa/multi-widget.git",
+                "reference": "8e43dc7c8ab1d8806fefd09486ca10f45aab0dc5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kenepa/multi-widget/zipball/8e43dc7c8ab1d8806fefd09486ca10f45aab0dc5",
+                "reference": "8e43dc7c8ab1d8806fefd09486ca10f45aab0dc5",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^2.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.13.5"
+            },
+            "require-dev": {
+                "tightenco/duster": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kenepa\\MultiWidget\\MultiWidgetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kenepa\\MultiWidget\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Filament widget that encompasses multiple widgets.",
+            "homepage": "https://github.com/kenepa/multi-widget",
+            "keywords": [
+                "Kenepa",
+                "filament",
+                "laravel",
+                "multi-widget"
+            ],
+            "support": {
+                "issues": "https://github.com/kenepa/multi-widget/issues",
+                "source": "https://github.com/kenepa/multi-widget/tree/1.0.1"
+            },
+            "time": "2023-06-02T17:15:17+00:00"
         },
         {
             "name": "laravel/framework",

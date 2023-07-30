@@ -48,6 +48,7 @@ class ListPendaftarans extends ListRecords
             Actions\Action::make('export')
                 ->label('Print PDF')
                 ->icon('heroicon-s-document-download')
+                ->hidden(auth()->user()->hasRole('santri'))
                 ->form([
                     Forms\Components\DatePicker::make('dari')->required(),
                     Forms\Components\DatePicker::make('hingga')->required()
@@ -108,10 +109,10 @@ class ListPendaftarans extends ListRecords
         return $record->name;
     }
 
-    // protected function getHeaderWidgets():array
-    // {
-    //     return [
-    //         PendaftaranStatsOverview::class,
-    //     ];
-    // }
+    protected function getHeaderWidgets():array
+    {
+        return [
+            PendaftaranStatsOverview::class,
+        ];
+    }
 }

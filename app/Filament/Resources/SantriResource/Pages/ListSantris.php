@@ -7,10 +7,11 @@ use Filament\Forms;
 use App\Models\kamar;
 use App\Models\Kelas;
 use App\Models\santri;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Filament\Pages\Actions;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Filament\Resources\Pages\ListRecords;
 use App\Filament\Resources\SantriResource;
+use App\Filament\Resources\SantriResource\Widgets\SantriStatsOverview;
 
 class ListSantris extends ListRecords
 {
@@ -58,6 +59,13 @@ class ListSantris extends ListRecords
                     return response()->streamDownload(fn () => print($pdf), $filename);
                 })
 
+        ];
+    }
+
+    protected function getHeaderWidgets():array
+    {
+        return [
+            SantriStatsOverview::class,
         ];
     }
 }

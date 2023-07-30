@@ -20,6 +20,7 @@ use Filament\Forms\Components\Select;
 use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\FileUpload;
 use App\Filament\Resources\SantriResource\Pages;
+use App\Filament\Resources\SantriResource\Widgets\SantriStatsOverview;
 
 class SantriResource extends Resource
 {
@@ -285,6 +286,13 @@ class SantriResource extends Resource
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
+    }
+
+    public static function getWidgets(): array
+    {
+        return[
+            SantriStatsOverview::class,
+        ];
     }
 
     public static function getRelations(): array

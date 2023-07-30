@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\DashboardResource\Widgets\PSBStatsOverview;
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
@@ -69,6 +70,7 @@ class UserResource extends Resource
             ]);
     }
 
+
     public static function getRelations(): array
     {
         return [
@@ -76,7 +78,13 @@ class UserResource extends Resource
         ];
     }
 
-  
+    public static function getWidgets(): array
+    {
+        return [
+            PSBStatsOverview::class
+        ];
+    }
+
 
     public static function getPages(): array
     {

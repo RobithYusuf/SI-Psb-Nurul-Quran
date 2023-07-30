@@ -17,7 +17,7 @@ class KamarResource extends Resource
 {
     protected static ?string $model = Kamar::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-folder-open';
+    protected static ?string $navigationIcon = 'heroicon-o-office-building';
 
     protected static ?string $navigationGroup = 'Master Data';
 

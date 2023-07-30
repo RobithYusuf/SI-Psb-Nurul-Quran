@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Storage;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Forms\Components\FileUpload;
 use App\Filament\Resources\PendaftaranResource\Pages;
+use App\Filament\Resources\DashboardResource\Widgets\PSBStatsOverview;
+use App\Filament\Resources\PendaftaranResource\Widgets\PendaftaranStatsOverview;
 
 class PendaftaranResource extends Resource
 {
@@ -248,12 +250,13 @@ class PendaftaranResource extends Resource
         ];
     }
 
-    // public static function getWidgets(): array
-    // {
-    //     return[
-    //         PendaftaranStatsOverview::class,
-    //     ];
-    // }
+    public static function getWidgets(): array
+    {
+        return[
+            PendaftaranStatsOverview::class,
+            PSBStatsOverview::class
+        ];
+    }
 
     public static function getPages(): array
     {
