@@ -2,8 +2,7 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Laporan Santri</title>
+    <title>Pengumuman Penerimaan Santri</title>
     <style type="text/css" media="all">
         * {
             font-family: DejaVu Sans, sans-serif !important;
@@ -227,53 +226,49 @@
             <hr style="border-top: 3px solid #000000;">
         </div>
     </div>
-    <div class="report-title">Laporan Data Santri</div>
-    <div class="report-info">
+    <h2>Pondok Pesantren Nurul Quran</h2>
+    <p>No: PPNQ/VII/2023</p>
+    <p>Lampiran: 1 berkas</p>
+    <p>Perihal: Pengumuman Hasil Kelulusan Santri</p>
+    <br>
+    <p>Assalamu'alaikum Wr. Wb.,</p>
+    <p>
+        Dengan memohon rahmat dan ridho Allah SWT, kami sampaikan bahwa berdasarkan hasil penilaian dan evaluasi yang telah dilakukan oleh tim Panitia PSB Pondok Pesantren Nurul Quran, telah ditentukan pendaftar dengan identitas:
+    </p>
+    <ul>
+        <li>Nama: {{ $pendaftaran->nama }}</li>
+        <li>NIK: {{ $pendaftaran->nik }}</li>
+        <li>Tempat, Tanggal Lahir: {{ $pendaftaran->tempat_lahir }}, {{ $pendaftaran->tanggal_lahir }}</li>
+        <li>Alamat: {{ $pendaftaran->alamat }}</li>
+    </ul>
 
-        <div class="report-info">
-            {{-- Kelas: <span>{{ $kelas_nama }}</span> --}}
-            Kamar: <span>{{ $kamar_nama }}</span>
-        </div>
+    <p>
+        Peserta pendaftaran tersebut memperoleh nilai kompetensi dasar agama dengan {{ $seleksi->nilai_test }},
+        nilai test wawancara dengan {{ $seleksi->nilai_wawancara }}, dan nilai ujian test BTQ nilai {{ $seleksi->nilai_btq }},
+        sehingga total nilai yang di peroleh adalah {{ $seleksi->total_nilai }},
+        @if($seleksi->total_nilai >= 75)
+        <br>
+    <p>
+        Dengan hasil nilai tersebut kami pihak panitia PSB menyatakan  <strong> LOLOS</strong> pada pendaftaran dan ujian test yang telah dilakukan.
+        Sehingga peserta harus melakukan pendaftaran ulang terhitung 1 minggu setelah surat pengumuman disampaikan.
+    </p>
+    <p>
+        nb : pendaftaran ulang wajib membawa print surat pengumuman, fotocopy kk,akta kelahiran,dan ijazah terakhir.
+    </p>
 
-        <div class="data-count">
+    @else
+    Dengan hasil nilai tersebut kami pihak panitia PSB menyatakan <strong>TIDAK LOLOS</strong> pada pendaftaran dan ujian test yang telah dilakukan. Tetap semangat dan teruslah mencari ilmu.
+    @endif
+    </p>
 
-        </div>
-    </div>
-    <table>
-        <thead>
-            <tr>
-                <th>ID Pendaftaran</th>
-                <th>NIK</th>
-                <th>Nama </th>
-                <th>Tempat Lahir</th>
-                <th>Tanggal Lahir</th>
-                <th>Alamat</th>
+    <p>
+        Demikian pengumuman ini kami buat.
+        Atas perhatiannya, kami ucapkan terima kasih.
+    </p>
 
-
-
-
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($records as $record)
-            <tr>
-                <td class="center-text">{{ $record->id }}</td>
-                <td>{{ $record->nik }}</td>
-                <td>{{ $record->nama }}</td>
-                <td>{{ $record->tempat_lahir }}</td>
-                <td>{{ $record->tanggal_lahir }}</td>
-                <td>{{ $record->alamat }}</td>
-
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <div class="footer">
-        <p class="footer-item right">Total  Santri:</p>
-
-        <p class="footer-item right" style="font-size: 14px;"><span>{{ $totalRows }}</span></p>
-        <p class="footer-item italic">*Informasi ini terupdate hingga tanggal {{ date('d/m/Y H:i') }}</p>
-    </div>
+    <p>Wassalamu'alaikum Wr. Wb.,</p>
+    <p>{{ \Carbon\Carbon::now()->format('d F Y') }}</p>
+    <p>Pengurus Pondok Pesantren Nurul Quran</p>
 </body>
 
 </html>

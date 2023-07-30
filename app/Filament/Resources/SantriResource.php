@@ -288,12 +288,12 @@ class SantriResource extends Resource
             ]);
     }
 
-    public static function getWidgets(): array
-    {
-        return[
-            SantriStatsOverview::class,
-        ];
-    }
+    // public static function getWidgets(): array
+    // {
+    //     return[
+    //         SantriStatsOverview::class,
+    //     ];
+    // }
 
     public static function getRelations(): array
     {

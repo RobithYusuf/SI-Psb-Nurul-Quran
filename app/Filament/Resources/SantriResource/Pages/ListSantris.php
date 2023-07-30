@@ -62,10 +62,10 @@ class ListSantris extends ListRecords
         ];
     }
 
-    protected function getHeaderWidgets():array
-    {
-        return [
-            SantriStatsOverview::class,
-        ];
-    }
+    // protected function getHeaderWidgets():array
+    // {
+    //     return [
+    //         SantriStatsOverview::class,
+    //     ];
+    // }
 }

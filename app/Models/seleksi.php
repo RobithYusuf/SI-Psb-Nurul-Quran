@@ -7,7 +7,7 @@ use App\Models\Exam\Result;
 use App\Models\Pendaftaran;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-Use Illuminate\Support\Carbon;
+use Illuminate\Support\Carbon;
 
 
 class seleksi extends Model
@@ -22,18 +22,20 @@ class seleksi extends Model
         'total_nilai',
         'status_seleksi',
         'tanggal_pengumuman',
-        'berkas_hasil_pendaftan'];
-    public $timestamps = false;
-    protected $dates = ['tanggal_pengumuman'];
-    protected $primaryKey= 'id';
+        'berkas_hasil_pendaftan',
+        'created_at',
+        'updated_at'
+    ];
 
-    public function pendaftaran(){
+    protected $dates = ['tanggal_pengumuman'];
+    protected $primaryKey = 'id';
+
+    public function pendaftaran()
+    {
         return $this->belongsTo(Pendaftaran::class, 'pendaftaran_id', 'id');
     }
-    public function result(){
+    public function result()
+    {
         return $this->belongsTo(Result::class, 'result_id', 'id');
     }
-
-
-
 }

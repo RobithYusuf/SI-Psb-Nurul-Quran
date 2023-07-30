@@ -2,8 +2,7 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Laporan Santri</title>
+    <title>Pengumuman Penerimaan Kelulusan Santri</title>
     <style type="text/css" media="all">
         * {
             font-family: DejaVu Sans, sans-serif !important;
@@ -227,53 +226,34 @@
             <hr style="border-top: 3px solid #000000;">
         </div>
     </div>
-    <div class="report-title">Laporan Data Santri</div>
-    <div class="report-info">
+    <h2>Pengumuman Penerimaan Kelulusan Santri</h2>
+    <p>Dari tanggal: {{ $dari }} hingga {{ $hingga }}</p>
+    <p>Total Pengumuman: {{ $totalRows }}</p>
 
-        <div class="report-info">
-            {{-- Kelas: <span>{{ $kelas_nama }}</span> --}}
-            Kamar: <span>{{ $kamar_nama }}</span>
-        </div>
-
-        <div class="data-count">
-
-        </div>
-    </div>
     <table>
         <thead>
             <tr>
-                <th>ID Pendaftaran</th>
-                <th>NIK</th>
-                <th>Nama </th>
-                <th>Tempat Lahir</th>
-                <th>Tanggal Lahir</th>
-                <th>Alamat</th>
-
-
-
-
+                <th>Nama</th>
+                <th>Nilai Test</th>
+                <th>Nilai Wawancara</th>
+                <th>Nilai BTQ</th>
+                <th>Total Nilai</th>
+                <th>Status Seleksi</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($records as $record)
+            @foreach($records as $record)
             <tr>
-                <td class="center-text">{{ $record->id }}</td>
-                <td>{{ $record->nik }}</td>
-                <td>{{ $record->nama }}</td>
-                <td>{{ $record->tempat_lahir }}</td>
-                <td>{{ $record->tanggal_lahir }}</td>
-                <td>{{ $record->alamat }}</td>
-
+                <td>{{ $record->name }}</td>
+                <td>{{ $record->nilai_test }}</td>
+                <td>{{ $record->nilai_wawancara }}</td>
+                <td>{{ $record->nilai_btq }}</td>
+                <td>{{ $record->total_nilai }}</td>
+                <td>{{ $record->status_seleksi }}</td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    <div class="footer">
-        <p class="footer-item right">Total  Santri:</p>
-
-        <p class="footer-item right" style="font-size: 14px;"><span>{{ $totalRows }}</span></p>
-        <p class="footer-item italic">*Informasi ini terupdate hingga tanggal {{ date('d/m/Y H:i') }}</p>
-    </div>
 </body>
 
 </html>

@@ -55,27 +55,28 @@ class User extends Authenticatable
 
     public function result()
     {
-        return $this->hasMany(Result::class);
+        return $this->hasOne(Result::class);
     }
 
     public function results()
-{
-    return $this->hasMany(Result::class, 'user_id');
-}
+    {
+        return $this->hasOne(Result::class, 'user_id');
+    }
     public function pendaftaran()
     {
         return $this->hasOne(Pendaftaran::class);
     }
 
+
     public function hasRegistered()
     {
         return $this->pendaftaran()->exists();
     }
+
     public static function create(array $attributes = [])
     {
-            $user = static::query()->create($attributes);
-            $user->assignRole('santri'); //atur default role daftar
-            return $user;
-        }
-
+        $user = static::query()->create($attributes);
+        $user->assignRole('santri'); //atur default role daftar
+        return $user;
+    }
 }
