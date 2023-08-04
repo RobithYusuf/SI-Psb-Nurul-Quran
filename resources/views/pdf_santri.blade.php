@@ -243,7 +243,7 @@
     <table>
         <thead>
             <tr>
-                <th>Kamar</th>
+                {{-- <th>Kamar</th> --}}
                 <th>ID Pendaftaran</th>
                 <th>NIK</th>
                 <th>Nama </th>
@@ -259,7 +259,7 @@
         <tbody>
             @foreach ($records as $record)
             <tr>
-                <td>{{$record->nama_kamar}}</td>
+                {{-- <td>{{$record->nama_kamar}}</td> --}}
                 <td class="center-text">{{ $record->id }}</td>
                 <td>{{ $record->nik }}</td>
                 <td>{{ $record->nama }}</td>
