@@ -23,7 +23,7 @@ class Pengumuman extends Page
         $user = Auth::user();
 
         if ($user && $user->hasRole('santri')) {
-            return __('Pengumuman Kelulusan');
+            return __('Laporan Pengumuman Kelulusan');
         } else {
             return __('Data Pengelolaan');
         }
@@ -116,7 +116,7 @@ class Pengumuman extends Page
                         }),
                 ])
                 ->action(function (array $data) {
-                    $filename = 'export_' . now()->toDateTimeString() . '.pdf';
+                    $filename = 'Laporan Data Pengumuman' . now()->toDateTimeString() . '.pdf';
 
                     // query untuk mengambil semua pengumuman antara tanggal yang diberikan
                     $pengumumanRecords = Seleksi::whereBetween('tanggal_pengumuman', [$data['dari'], $data['hingga']])

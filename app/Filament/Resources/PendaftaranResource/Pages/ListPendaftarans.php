@@ -46,7 +46,7 @@ class ListPendaftarans extends ListRecords
                 }),
 
             Actions\Action::make('export')
-                ->label('Print PDF')
+                ->label('Print Laporan Pendaftaran')
                 ->icon('heroicon-s-document-download')
                 ->hidden(auth()->user()->hasRole('santri'))
                 ->form([
@@ -57,7 +57,7 @@ class ListPendaftarans extends ListRecords
                         }),
                 ])
                 ->action(function (array $data) {
-                    $filename = 'export_' . now()->toDateTimeString() . '.pdf';
+                    $filename = 'Laporan Data Pendaftaran' . now()->toDateTimeString() . '.pdf';
 
                     // query untuk mengambil semua pengeluaran_barang antara tanggal yang diberikan
                     $pengeluaranRecords = Pendaftaran::whereBetween('created_at', [$data['dari'], $data['hingga']])->get();

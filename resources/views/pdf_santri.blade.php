@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Laporan Santri</title>
+    <title>Laporan Santri Baru</title>
     <style type="text/css" media="all">
         * {
             font-family: DejaVu Sans, sans-serif !important;
@@ -233,6 +233,7 @@
         <div class="report-info">
             {{-- Kelas: <span>{{ $kelas_nama }}</span> --}}
             Kamar: <span>{{ $kamar_nama }}</span>
+
         </div>
 
         <div class="data-count">
@@ -242,6 +243,7 @@
     <table>
         <thead>
             <tr>
+                <th>Kamar</th>
                 <th>ID Pendaftaran</th>
                 <th>NIK</th>
                 <th>Nama </th>
@@ -257,6 +259,7 @@
         <tbody>
             @foreach ($records as $record)
             <tr>
+                <td>{{$record->nama_kamar}}</td>
                 <td class="center-text">{{ $record->id }}</td>
                 <td>{{ $record->nik }}</td>
                 <td>{{ $record->nama }}</td>

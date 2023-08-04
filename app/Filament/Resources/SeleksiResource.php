@@ -197,7 +197,7 @@ class SeleksiResource extends Resource
                         'danger' => 'TIDAK LOLOS',
                     ]),
                 Tables\Columns\TextColumn::make('tanggal_pengumuman'),
-                Tables\Columns\TextColumn::make('berkas_hasil_pendaftaran'),
+                
             ])
             ->filters([
                 //
